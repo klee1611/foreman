@@ -1,0 +1,17 @@
+{
+  "name": "foreman",
+  "owner": {
+    "name": "Kuo-Hsiu (Kourtney) Lee"
+  },
+  "metadata": {
+    "description": "Orchestration plugin: a premium model plans and verifies, cheaper subagents do the routine work."
+  },
+  "plugins": [
+    {
+      "name": "foreman",
+      "source": "./plugins/foreman",
+      "description": "Plan, delegate to cheaper subagents, verify, deliver.",
+      "version": "0.1.0"
+    }
+  ]
+}

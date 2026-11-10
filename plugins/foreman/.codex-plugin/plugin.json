@@ -1,0 +1,26 @@
+{
+  "name": "foreman",
+  "version": "0.1.0",
+  "description": "Turn your premium model into a lead engineer: it plans, delegates well-scoped work to cheaper subagents, verifies the results, and delivers.",
+  "author": {
+    "name": "Kuo-Hsiu (Kourtney) Lee",
+    "url": "https://github.com/klee1611"
+  },
+  "homepage": "https://github.com/klee1611/foreman",
+  "repository": "https://github.com/klee1611/foreman",
+  "license": "MIT",
+  "keywords": ["orchestration", "subagents", "delegation", "cost", "token-saving"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Foreman",
+    "shortDescription": "Plan, delegate to cheaper subagents, verify, deliver.",
+    "longDescription": "Foreman turns your main model into a lead engineer. The orchestrate skill plans a task, delegates well-scoped work to cheaper subagents (implementer, searcher, reviewer), verifies their results, and delivers a summary.",
+    "developerName": "Kuo-Hsiu (Kourtney) Lee",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://github.com/klee1611/foreman",
+    "logo": "./.claude-plugin/icon.png",
+    "composerIcon": "./.claude-plugin/icon.png",
+    "defaultPrompt": ["Use $orchestrate to build this feature with subagents, then verify it."]
+  }
+}

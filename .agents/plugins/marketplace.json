@@ -1,0 +1,20 @@
+{
+  "name": "foreman",
+  "interface": {
+    "displayName": "Foreman"
+  },
+  "plugins": [
+    {
+      "name": "foreman",
+      "source": {
+        "source": "local",
+        "path": "./plugins/foreman"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
