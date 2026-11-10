@@ -3,7 +3,7 @@
 # Codex plugins ship skills; custom agents live as TOML files in that folder.
 set -euo pipefail
 
-SRC="$(cd "$(dirname "$0")/.." && pwd)/plugins/foreman/codex/agents"
+SRC="$(cd "$(dirname "$0")/.." && pwd)/codex/agents"
 DEST="${CODEX_HOME:-$HOME/.codex}/agents"
 
 mkdir -p "$DEST"

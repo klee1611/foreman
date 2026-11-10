@@ -129,7 +129,7 @@ tasks, doing it directly is cheaper.
 ## Customizing
 
 - **Change models:** edit `model:` in `plugins/foreman/agents/*.md` (Claude
-  Code) or add/set `model =` in `plugins/foreman/codex/agents/*.toml` (Codex).
+  Code) or add/set `model =` in `codex/agents/*.toml` (Codex).
 - **Add an agent:** add a file in the same folder, then list it in the
   "Your team" table in `skills/orchestrate/SKILL.md`.
 
@@ -143,8 +143,9 @@ foreman/
 │   ├── .claude-plugin/plugin.json
 │   ├── .codex-plugin/plugin.json
 │   ├── skills/orchestrate/SKILL.md     shared by both tools
-│   ├── agents/*.md                     Claude Code subagents
-│   └── codex/agents/*.toml             Codex subagents
+│   └── agents/*.md                     Claude Code subagents
+├── codex/agents/*.toml                 Codex subagents (outside the plugin;
+│                                       copied by the install script)
 └── scripts/install-codex-agents.sh
 ```
 

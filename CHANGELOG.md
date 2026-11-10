@@ -3,6 +3,16 @@
 All notable changes to Foreman are documented here. This project follows
 [Semantic Versioning](https://semver.org/).
 
+## [0.1.2] - 2026-11-10
+
+### Changed
+
+- Moved the Codex subagent TOML files from `plugins/foreman/codex/agents/`
+  to `codex/agents/` at the repo root. The Claude plugin directory doesn't
+  allow TOML files inside a plugin, and Claude Code never used them.
+  `scripts/install-codex-agents.sh` reads from the new location; Codex users
+  install the same way as before.
+
 ## [0.1.1] - 2026-11-10
 
 ### Fixed
@@ -33,5 +43,6 @@ Initial release.
 - Claude Code marketplace (`.claude-plugin/marketplace.json`) and Codex
   marketplace (`.agents/plugins/marketplace.json`).
 
+[0.1.2]: https://github.com/klee1611/foreman/releases/tag/v0.1.2
 [0.1.1]: https://github.com/klee1611/foreman/releases/tag/v0.1.1
 [0.1.0]: https://github.com/klee1611/foreman/releases/tag/v0.1.0
