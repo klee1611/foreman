@@ -1,6 +1,6 @@
 name = "implementer"
 description = "Use for well-scoped implementation tasks such as writing a function or module, adding tests, fixing a clearly described bug, or changing configuration."
-model = "gpt-5.4-mini"
+model = "gpt-5.6-luna"
 model_reasoning_effort = "medium"
 sandbox_mode = "workspace-write"
 developer_instructions = """

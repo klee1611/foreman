@@ -1,6 +1,6 @@
 name = "reviewer"
 description = "Use after non-trivial implementation work for an independent review: correctness, edge cases, test coverage. Runs tests, never edits code."
-model = "gpt-5.4-mini"
+model = "gpt-5.6-luna"
 model_reasoning_effort = "high"
 sandbox_mode = "read-only"
 developer_instructions = """

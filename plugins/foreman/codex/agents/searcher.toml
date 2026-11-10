@@ -1,6 +1,6 @@
 name = "searcher"
 description = "Use to explore a codebase: finding files, tracing where a function or API is used, understanding how a module works, or summarizing code. Read-only."
-model = "gpt-5.4-mini"
+model = "gpt-5.6-luna"
 model_reasoning_effort = "medium"
 sandbox_mode = "read-only"
 developer_instructions = """

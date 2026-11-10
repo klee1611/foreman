@@ -22,8 +22,8 @@ their results, and gives you the finished product with instructions.
 
 Premium models are excellent at judgment and expensive per token. Most of a
 coding session is not judgment: it is reading files, writing boilerplate, and
-running tests. Foreman keeps the expensive model on decisions and moves the
-bulk work to cheaper ones.
+running tests. Foreman lets you route routine work to a cheaper model when
+your platform supports model selection for subagents.
 
 It also fixes a common annoyance: the main agent often does everything itself
 and never uses subagents. Foreman gives it explicit rules for when to delegate
@@ -34,13 +34,19 @@ and when not to.
 | Component     | Claude Code      | Codex            | Role                                      |
 |---------------|------------------|------------------|-------------------------------------------|
 | `orchestrate` | Skill            | Skill            | Workflow and delegation rules for the lead |
-| `implementer` | Sonnet subagent  | `gpt-5.4-mini`   | Writes code within a defined scope        |
-| `searcher`    | Sonnet subagent  | `gpt-5.4-mini`   | Read-only codebase exploration            |
-| `reviewer`    | Sonnet subagent  | `gpt-5.4-mini`   | Independent review; runs tests, never edits |
+| `implementer` | Sonnet subagent  | `gpt-5.6-luna`   | Writes code within a defined scope        |
+| `searcher`    | Sonnet subagent  | `gpt-5.6-luna`   | Read-only codebase exploration            |
+| `reviewer`    | Sonnet subagent  | `gpt-5.6-luna`   | Independent review; runs tests, never edits |
 
-`searcher` uses Sonnet rather than Haiku on purpose. A search agent that
+Claude Code's `searcher` uses Sonnet rather than Haiku on purpose. A search agent that
 silently misses a call site ("no other usages exist") misleads every decision
 the lead makes afterwards. Cheap is not worth wrong here.
+
+Codex agents use `gpt-5.6-luna`, the lowest-cost model that works with both
+ChatGPT-account and API-key logins. If your account doesn't offer it, run
+`codex debug models` to see what you have, then either set `model` in
+`~/.codex/agents/*.toml` to one of those or delete the `model` line so the
+agent uses your default model.
 
 ## Install
 
@@ -123,7 +129,7 @@ tasks, doing it directly is cheaper.
 ## Customizing
 
 - **Change models:** edit `model:` in `plugins/foreman/agents/*.md` (Claude
-  Code) or `model =` in `plugins/foreman/codex/agents/*.toml` (Codex).
+  Code) or add/set `model =` in `plugins/foreman/codex/agents/*.toml` (Codex).
 - **Add an agent:** add a file in the same folder, then list it in the
   "Your team" table in `skills/orchestrate/SKILL.md`.
 
