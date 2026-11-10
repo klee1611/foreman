@@ -19,6 +19,3 @@ done
 
 echo
 echo "Done. Start a new Codex session so the agents are loaded."
-echo "Make sure multi-agent is enabled in ~/.codex/config.toml:"
-echo "  [features]"
-echo "  multi_agent = true"

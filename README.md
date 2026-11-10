@@ -51,8 +51,13 @@ the lead makes afterwards. Cheap is not worth wrong here.
 /plugin install foreman@foreman
 ```
 
-Choose **user scope** when prompted so it works in every project. Then run
-`/agents` to confirm the three agents are listed.
+Choose **user scope** when prompted so it works in every project. Then start
+a new session (plugins load at startup) and ask *"Which subagents and skills
+do you have?"* You should see `foreman:implementer`, `foreman:searcher`,
+`foreman:reviewer`, and the `foreman:orchestrate` skill.
+
+The agents load straight from the plugin; nothing is copied into
+`~/.claude/agents/` (that folder is only for agents you write yourself).
 
 Or from your shell:
 
@@ -65,13 +70,18 @@ To get new versions later: `claude plugin update foreman@foreman`.
 
 ### Codex
 
+Two steps. **Both are required.** Without step 2 the skill loads but has no
+subagents to delegate to.
+
+**1. Install the plugin** (adds the `orchestrate` skill):
+
 ```bash
 codex plugin marketplace add klee1611/foreman
 codex plugin add foreman@foreman
 ```
 
-Codex plugins ship skills, but custom subagents are separate TOML files.
-Install them with:
+**2. Install the subagents.** Codex plugins can't ship subagents, so this
+script copies three TOML files into `~/.codex/agents/`:
 
 ```bash
 git clone https://github.com/klee1611/foreman.git
@@ -79,14 +89,9 @@ cd foreman
 ./scripts/install-codex-agents.sh
 ```
 
-Make sure multi-agent is enabled in `~/.codex/config.toml`:
-
-```toml
-[features]
-multi_agent = true
-```
-
-Start a new session after installing.
+Start a new session after installing. Multi-agent support is on by default
+in current Codex releases; if subagents don't spawn, check with
+`codex features list | grep multi_agent`.
 
 ## Usage
 
