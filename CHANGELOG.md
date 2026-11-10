@@ -1,0 +1,20 @@
+# Changelog
+
+All notable changes to Foreman are documented here. This project follows
+[Semantic Versioning](https://semver.org/).
+
+## [0.1.0] - 2026-11-10
+
+Initial release.
+
+### Added
+
+- `orchestrate` skill, shared by Claude Code and Codex: workflow and
+  delegation rules for the lead model.
+- Claude Code subagents: `implementer`, `searcher`, `reviewer` (Sonnet).
+- Codex subagents (`gpt-5.4-mini`) as TOML files, plus
+  `scripts/install-codex-agents.sh` to install them into `~/.codex/agents/`.
+- Claude Code marketplace (`.claude-plugin/marketplace.json`) and Codex
+  marketplace (`.agents/plugins/marketplace.json`).
+
+[0.1.0]: https://github.com/klee1611/foreman/releases/tag/v0.1.0
